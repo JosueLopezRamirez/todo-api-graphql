@@ -7,10 +7,14 @@ import { TodoModule } from './todo/todo.module';
   imports: [
     TodoModule,
     GraphQLModule.forRoot({
-      debug: false,
       playground: true,
+      introspection: true,
       autoSchemaFile: 'schema.gql',
       installSubscriptionHandlers: true,
+      cors: {
+        origin: '*',
+        'Access-Control-Allow-Origin': '*',
+      },
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
