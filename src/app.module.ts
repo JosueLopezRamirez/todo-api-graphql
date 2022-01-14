@@ -7,9 +7,10 @@ import { TodoModule } from './todo/todo.module';
   imports: [
     TodoModule,
     GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
       playground: true,
       introspection: true,
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: 'schema.graphql',
       installSubscriptionHandlers: true,
       cors: {
         origin: '*',
