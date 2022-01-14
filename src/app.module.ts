@@ -16,6 +16,9 @@ import { TodoModule } from './todo/todo.module';
         origin: '*',
         'Access-Control-Allow-Origin': '*',
       },
+      context: async ({ req, connection }) => ({
+        headers: connection ? null : req.headers,
+      }),
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
